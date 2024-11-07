@@ -43,3 +43,9 @@ body{
         padding: 20px;
     }
 }
+
+/*------------ Home Page ------------*/
+
+.home{
+    background-color: aqua;
+}
