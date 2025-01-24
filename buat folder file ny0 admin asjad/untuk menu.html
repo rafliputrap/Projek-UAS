@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Admin Produk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: black;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: darkred;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid darkred;
+        }
+        th {
+            background-color: darkred;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .add-product {
+            background-color:black;
+            color: darkred;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .add-product:hover {
+            background-color: coral;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+        button{
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #f44336;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d32f2f; }
+
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Halaman Admin Produk</h1>
+
+    <h2>Tambah Produk Baru</h2>
+    <form id="productForm">
+        <div class="form-group">
+            <label for="productName">Nama Produk:</label>
+            <input type="text" id="productName" required>
+        </div>
+        <div class="form-group">
+            <label for="productPrice">Harga:</label>
+            <input type="number" id="productPrice" required>
+        </div>
+        <div class="form-group">
+            <label for="productDescription">Deskripsi:</label>
+            <input type="text" id="productDescription" required>
+        </div>
+        <a href="dasboard..html"></a><button type="submit" class="add-product">Tambahkan Produk</button>
+    </form>   
+    <table>
+        <thead>
+            <tr>
+                <th>berihkan bagian luar & dalam </th>
+                <th>bagian dalam</th>
+                <th>bagian luar </th>
+                <th>bersihkan jamur kaca dan kotoran</th>
+            </tr>
+        </thead>
+        <tbody id="productList">
+            <!-- Daftar produk akan ditambahkan di sini -->
+        </tbody>
+    </table>
+          </div> 
+    &copy; 2023 Toko Online. Semua hak dilindungi.
+</div>
+
+<script>
+    document.getElementById('productForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const productName = document.getElementById('productName').value;
+        const productPrice = document.getElementById('productPrice').value;
+        const productDescription = document.getElementById('productDescription').value;
+
+        const productList = document.getElementById('productList');
+        const newRow = document.createElement('tr');
+
+        newRow.innerHTML = `
+            <td>${productName}</td>
+            <td>Rp ${parseInt(productPrice).toLocaleString()}</td>
+            <td>${productDescription}</td>
+            <td><button onclick="deleteProduct(this)">Hapus</button></td>
+        `;
+
+        productList.appendChild(newRow);
+
+        // Reset form
+        document.getElementById('productForm').reset();
+    });
+
+    function deleteProduct(button) {
+        const row = button.parentElement.parentElement;
+        row.parentElement.remove
+    }
